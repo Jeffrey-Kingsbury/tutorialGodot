@@ -18,7 +18,11 @@ func _physics_process(_delta):
 
 	update_animation_parameters(input_direction)
 	velocity = input_direction * move_speed
-	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision:
+
+			print("sdasda")
 	move_and_slide()
 	pick_new_state()
 	
@@ -32,6 +36,4 @@ func pick_new_state():
 		state_machine.travel("walk")
 	else:
 		state_machine.travel("idle")
-
-
 
